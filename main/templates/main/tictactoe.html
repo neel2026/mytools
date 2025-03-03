@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Tic Tac Toe{% endblock %}
+
+{% block content %}
+<div class="tictactoe-page">
+    <h1>Tic Tac Toe</h1>
+    <div class="game-container">
+        <div class="game-info">
+            <div id="status-message" class="status-message"></div>
+            <div class="player-turn"><span id="current-player">Your</span> Turn</div>
+        </div>
+        <div class="game-board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <button id="reset-game" class="reset-button">Reset Game</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'main/js/tictactoe.js' %}"></script>
+{% endblock %} 

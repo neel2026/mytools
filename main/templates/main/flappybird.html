@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Flappy Bird{% endblock %}
+
+{% block content %}
+<div class="flappybird-page">
+    <h1>Flappy Bird</h1>
+    <div class="game-container">
+        <div class="game-info">
+            <div class="score-container">
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="high-score">High Score: <span id="highScore">0</span></div>
+            </div>
+            <div class="status-container">
+                <div class="player-turn">Current Player: <span id="current-player">You</span></div>
+                <div id="status-message" class="status-message"></div>
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-controls">
+            <button id="startGame" class="start-button">Start Game</button>
+            <p class="instructions">Press SPACE or Click/Tap to jump</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'main/js/flappybird.js' %}"></script>
+{% endblock %} 

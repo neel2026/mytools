@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Tools{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="{% url 'main:home' %}" class="logo-link">
+                <h2>My Tools</h2>
+            </a>
+            {% if user.is_authenticated %}
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <span>{{ user.username }}</span>
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'main:change_password' %}">Change Password</a>
+                        <a href="{% url 'main:logout' %}">Logout</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+    
+    <main class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'main/js/script.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 

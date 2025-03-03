@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Home - My Tools{% endblock %}
+
+{% block content %}
+    <section class="welcome-section">
+        <h1>Welcome to My Tools</h1>
+        <div class="content">
+            <p>Discover amazing tools and applications designed to make your life easier.</p>
+        </div>
+    </section>
+
+    <section class="apps-section reveal">
+        <h2>Featured Tools</h2>
+        <div class="app-grid">
+            <a href="{% url 'main:calculator' %}" class="app-card">
+                <img src="https://img.icons8.com/?size=100&id=wxk0u0qvA3K6&format=png&color=000000" alt="Calculator">
+                <h3>Calculator</h3>
+            </a>
+            <a href="{% url 'main:tictactoe' %}" class="app-card">
+                <img src="https://img.icons8.com/?size=100&id=D5v6Faacs6m5&format=png&color=000000" alt="Tic Tac Toe">
+                <h3>Tic Tac Toe</h3>
+            </a>
+            <a href="{% url 'main:flappybird' %}" class="app-card">
+                <img src="{% static 'main/images/bird.png' %}" alt="Flappy Bird">
+                <h3>Flappy Bird</h3>
+            </a>
+        </div>
+    </section>
+{% endblock %} 
